@@ -1,1 +1,10 @@
 <h1><%= @cocktail.name %></h1>
+
+
+<%= link_to do %>
+  <i class="fas fa-trash-alt"></i>
+<% end %>
+
+<%= link_to 'Delete', dose_path,
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>

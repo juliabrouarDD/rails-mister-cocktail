@@ -13,6 +13,19 @@
   </head>
 
   <body>
+    <div class="navbar-wagon">
+  <!-- Title -->
+      <div>
+        <p class="navbar-text"><%= link_to 'Mr Cocktails', cocktails_path %></p>
+      </div>
+  <!-- Right Navigation -->
+      <div class="navbar-wagon-right hidden-xs hidden-sm">
+        <p class="navbar-wagon-item navbar-wagon-link">
+          <%= link_to 'Add a new Cocktail', new_cocktail_path %>
+        </p>
+      </div>
+    </div>
+
     <%= yield %>
     <%= javascript_include_tag "application" %>
     <%= javascript_pack_tag "application" %>
