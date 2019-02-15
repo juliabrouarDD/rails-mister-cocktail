@@ -1,14 +1,16 @@
 <div class="container">
-  <h1>Cocktails list</h1>
+  <h1 class="home-title">Cocktails list</h1>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
     <div class="col-xs-12 col-sm-4">
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path("#{cocktail.name}.png") %>');">
         <div class="card-description">
-          <h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
+          <h2><%= cocktail.name %></h2>
         </div>
+        <%= link_to '', cocktail_path(cocktail), class: "card-link" %>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+

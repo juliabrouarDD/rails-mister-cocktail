@@ -1,15 +1,12 @@
-# require 'json'
-# require 'open-uri'
+require 'json'
+require 'open-uri'
 
-# url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
-# ingredients = open(url).read
-# p ingredients = JSON.parse(ingredients)['drinks']
+Ingredient.destroy_all
 
-# 5.times do
-#   # ingredient = Ingredient.new
-#   # ingredient.save!
-# end
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+user_serialized = open(url).read
+user = JSON.parse(user_serialized)
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
+user['drinks'].each do |drink|
+  Ingredient.create(name: drink['strIngredient1'])
+end
